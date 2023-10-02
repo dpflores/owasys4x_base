@@ -1439,22 +1439,6 @@
         ]
     },
     {
-        "id": "d8313f623a010f53",
-        "type": "debug",
-        "z": "a3f4332528cf7e20",
-        "name": "debug 34",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1400,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "36684df8be923d94",
         "type": "comment",
         "z": "a3f4332528cf7e20",
@@ -1630,9 +1614,6 @@
         "y": 160,
         "wires": [
             [
-                "cb2630f34149b8f0",
-                "a47d015e7e3645d7",
-                "bbd6bf886f9068b5",
                 "23d0a78864a9a4f1"
             ]
         ]
@@ -1650,138 +1631,6 @@
         "wires": [
             [
                 "8fa40cd16f10f3f3"
-            ]
-        ]
-    },
-    {
-        "id": "cb2630f34149b8f0",
-        "type": "function",
-        "z": "a3f4332528cf7e20",
-        "name": "function 23",
-        "func": "msg.payload = msg.payload.numSvs;\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1270,
-        "y": 300,
-        "wires": [
-            [
-                "1c8e968ad7ef9ba5",
-                "34577df93c662b59"
-            ]
-        ]
-    },
-    {
-        "id": "1c8e968ad7ef9ba5",
-        "type": "debug",
-        "z": "a3f4332528cf7e20",
-        "name": "debug 39",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 1460,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "34577df93c662b59",
-        "type": "mqtt out",
-        "z": "a3f4332528cf7e20",
-        "name": "",
-        "topic": "satelites_owasys",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "ae86d70651429506",
-        "x": 1530,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "a47d015e7e3645d7",
-        "type": "function",
-        "z": "a3f4332528cf7e20",
-        "name": "function 24",
-        "func": "msg.payload = msg.payload.HDOP;\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1230,
-        "y": 360,
-        "wires": [
-            [
-                "ce2306272a9be09b"
-            ]
-        ]
-    },
-    {
-        "id": "ce2306272a9be09b",
-        "type": "mqtt out",
-        "z": "a3f4332528cf7e20",
-        "name": "",
-        "topic": "hdop_owasys",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "ae86d70651429506",
-        "x": 1480,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "106d978e4b5c2442",
-        "type": "mqtt out",
-        "z": "a3f4332528cf7e20",
-        "name": "",
-        "topic": "hacc_owasys",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "ae86d70651429506",
-        "x": 1500,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "bbd6bf886f9068b5",
-        "type": "function",
-        "z": "a3f4332528cf7e20",
-        "name": "function 25",
-        "func": "msg.payload = msg.payload.hAcc;\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1250,
-        "y": 400,
-        "wires": [
-            [
-                "106d978e4b5c2442"
             ]
         ]
     },
