@@ -3300,7 +3300,7 @@
         "id": "924579b0b9c10f85",
         "type": "exec",
         "z": "dc15c9786796144f",
-        "command": "echo -n $(ip -4 addr show | grep 192.168.192. | awk '{print$2}')",
+        "command": "echo -n $(ip -4 addr show | grep ztly | grep inet | awk '{print$2}' )",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
