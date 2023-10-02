@@ -3,7 +3,8 @@
     "description": "Uso de los perifericos del owasys con los programas en C y su propia base de datos en REDIS",
     "version": "0.0.1",
     "dependencies": {
-        "node-red-node-ping": "0.3.3"
+        "node-red-node-ping": "0.3.3",
+        "node-red-node-mysql": "1.0.3"
     },
     "node-red": {
         "settings": {
