@@ -1073,18 +1073,21 @@
         "wires": []
     },
     {
-        "id": "3c6fd0ee99d40ad1",
-        "type": "flat",
+        "id": "cbc02ca41053ef73",
+        "type": "debug",
         "z": "2d0eae5d14faaa89",
-        "g": "03dbc771bbc29c4e",
+        "g": "9af6fe30f8c39995",
         "name": "",
-        "x": 230,
-        "y": 1020,
-        "wires": [
-            [
-                "5c859091a6d10e13"
-            ]
-        ]
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 680,
+        "wires": []
     },
     {
         "id": "5ac4d92068b0b2e0",
@@ -1175,21 +1178,18 @@
         ]
     },
     {
-        "id": "cbc02ca41053ef73",
-        "type": "debug",
+        "id": "3c6fd0ee99d40ad1",
+        "type": "flat",
         "z": "2d0eae5d14faaa89",
-        "g": "9af6fe30f8c39995",
+        "g": "03dbc771bbc29c4e",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 680,
-        "wires": []
+        "x": 230,
+        "y": 1020,
+        "wires": [
+            [
+                "5c859091a6d10e13"
+            ]
+        ]
     },
     {
         "id": "f6030b020cf22d88",
@@ -2944,7 +2944,7 @@
         "id": "2da0559db31bd933",
         "type": "exec",
         "z": "dc15c9786796144f",
-        "command": "sudo /home/debian/owasys4x_binaries/TEMPERATURE",
+        "command": "sudo /home/debian/owasys4x_binaries/TEMPERATURE_OWASYS",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -2952,7 +2952,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 490,
+        "x": 520,
         "y": 1100,
         "wires": [
             [],
@@ -3209,6 +3209,51 @@
         "wires": []
     },
     {
+        "id": "d229c03eb43c9310",
+        "type": "exec",
+        "z": "dc15c9786796144f",
+        "command": "sudo /home/debian/owasys4x_binaries/VBAT_OWASYS",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 490,
+        "y": 1180,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7f4d77b133019c6c",
+        "type": "change",
+        "z": "dc15c9786796144f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.gateway_info.vbat",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "93a424f0f4d8ca2f",
         "type": "ping",
         "z": "dc15c9786796144f",
@@ -3244,51 +3289,6 @@
             [
                 "4d9cf53760a64ca9"
             ]
-        ]
-    },
-    {
-        "id": "d229c03eb43c9310",
-        "type": "exec",
-        "z": "dc15c9786796144f",
-        "command": "sudo /home/debian/owasys4x_binaries/VBAT",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 450,
-        "y": 1180,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "7f4d77b133019c6c",
-        "type": "change",
-        "z": "dc15c9786796144f",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data.data.gateway_info.vbat",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1100,
-        "y": 1180,
-        "wires": [
-            []
         ]
     }
 ]
