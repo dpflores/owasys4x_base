@@ -330,7 +330,7 @@
                 "t": "set",
                 "p": "gateway_data",
                 "pt": "global",
-                "to": "{\"gateway_key\":\"\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":0,\"used_space\":0,\"used_space_percent\":0,\"free_space\":0,\"num_gps_sat\":0,\"memory_usage_percent\":0,\"temperature\":0,\"vbat\":0},\"gps\":{\"latitude\":0,\"longitude\":0,\"altitude\":0,\"speed\":0,\"accuracy\":0,\"num_sat\":0},\"imu\":{\"accel_x\":0,\"accel_y\":0,\"accel_z\":0},\"sensor_estado\":{\"state\":\"init\"}}}",
+                "to": "{\"gateway_key\":\"\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":0,\"used_space\":0,\"used_space_percent\":0,\"free_space\":0,\"num_gps_sat\":0,\"memory_usage_percent\":0,\"temperature\":0,\"vbat\":0},\"gps\":{\"latitude\":0,\"longitude\":0,\"altitude\":0,\"speed\":0,\"accuracy\":0,\"num_sat\":0},\"imu\":{\"accel_x\":0,\"accel_y\":0,\"accel_z\":0},\"sensor_estado\":{\"state\":\"init\"}}}",
                 "tot": "json"
             }
         ],
@@ -2654,7 +2654,8 @@
                 "2defab509360a1d0",
                 "4b2a9ed741abf20c",
                 "2da0559db31bd933",
-                "d229c03eb43c9310"
+                "d229c03eb43c9310",
+                "924579b0b9c10f85"
             ]
         ]
     },
@@ -2670,8 +2671,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 450,
-        "y": 620,
+        "x": 430,
+        "y": 700,
         "wires": [
             [
                 "93c706f12581e85c"
@@ -2699,8 +2700,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 910,
-        "y": 620,
+        "x": 990,
+        "y": 680,
         "wires": [
             []
         ]
@@ -2718,7 +2719,7 @@
         "oldrc": false,
         "name": "",
         "x": 500,
-        "y": 720,
+        "y": 820,
         "wires": [
             [
                 "cb7b4aac0a7947f8"
@@ -2740,7 +2741,7 @@
         "oldrc": false,
         "name": "",
         "x": 500,
-        "y": 780,
+        "y": 880,
         "wires": [
             [
                 "d3d919f9f49bb963"
@@ -2762,7 +2763,7 @@
         "oldrc": false,
         "name": "",
         "x": 500,
-        "y": 840,
+        "y": 940,
         "wires": [
             [
                 "52e124a0e8c22d22"
@@ -2790,8 +2791,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 970,
-        "y": 720,
+        "x": 1010,
+        "y": 800,
         "wires": [
             []
         ]
@@ -2815,8 +2816,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 970,
-        "y": 780,
+        "x": 1010,
+        "y": 860,
         "wires": [
             []
         ]
@@ -2840,8 +2841,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 960,
-        "y": 840,
+        "x": 1000,
+        "y": 920,
         "wires": [
             []
         ]
@@ -2859,7 +2860,7 @@
         "oldrc": false,
         "name": "",
         "x": 500,
-        "y": 900,
+        "y": 1000,
         "wires": [
             [
                 "e68f7b118d8ea36f"
@@ -2887,8 +2888,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 990,
-        "y": 900,
+        "x": 1030,
+        "y": 980,
         "wires": [
             []
         ]
@@ -2906,7 +2907,7 @@
         "oldrc": false,
         "name": "",
         "x": 470,
-        "y": 1020,
+        "y": 1060,
         "wires": [
             [
                 "7cb2cbfd7fbf08c7"
@@ -2934,8 +2935,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1020,
-        "y": 1020,
+        "x": 1040,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -2953,7 +2954,7 @@
         "oldrc": false,
         "name": "",
         "x": 520,
-        "y": 1100,
+        "y": 1120,
         "wires": [
             [
                 "6d6c2ea27d5221c3"
@@ -2981,7 +2982,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1170,
+        "x": 1010,
         "y": 1100,
         "wires": [
             []
@@ -3251,7 +3252,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1100,
+        "x": 980,
         "y": 1180,
         "wires": [
             []
@@ -3293,6 +3294,53 @@
             [
                 "4d9cf53760a64ca9"
             ]
+        ]
+    },
+    {
+        "id": "924579b0b9c10f85",
+        "type": "exec",
+        "z": "dc15c9786796144f",
+        "command": "echo -n $(ip -4 addr show | grep 192.168.192. | awk '{print$4}')",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 510,
+        "y": 760,
+        "wires": [
+            [
+                "cfe000fb0c5f88ce"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cfe000fb0c5f88ce",
+        "type": "change",
+        "z": "dc15c9786796144f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.gateway_info.vpn_ip",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 740,
+        "wires": [
+            []
         ]
     }
 ]
