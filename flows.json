@@ -330,7 +330,7 @@
                 "t": "set",
                 "p": "gateway_data",
                 "pt": "global",
-                "to": "{\"gateway_key\":\"\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":0,\"used_space\":0,\"used_space_percent\":0,\"free_space\":0,\"num_gps_sat\":0,\"memory_usage_percent\":0,\"temperature\":0,\"vbat\":0},\"gps\":{\"latitude\":0,\"longitude\":0,\"altitude\":0,\"speed\":0,\"accuracy\":0,\"num_sat\":0},\"imu\":{\"accel_x\":0,\"accel_y\":0,\"accel_z\":0},\"sensor_estado\":{\"state\":\"init\"}}}",
+                "to": "{\"gateway_key\":\"\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":0,\"used_space\":0,\"used_space_percent\":0,\"free_space\":0,\"num_gps_sat\":0,\"memory_usage_percent\":0,\"temperature\":0,\"vbat\":0},\"gps\":{\"pos_valid\":0,\"old_pos\":1,\"total\":0,\"nav_status\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"vaccuracy\":0,\"speed\":0,\"course\":0,\"hdop\":0,\"vdop\":0,\"tdop\":0,\"num_sat\":0},\"imu\":{\"accel_x\":0,\"accel_y\":0,\"accel_z\":0},\"sensor_estado\":{\"state\":\"init\"}}}",
                 "tot": "json"
             }
         ],
@@ -1425,43 +1425,17 @@
         "type": "function",
         "z": "a3f4332528cf7e20",
         "name": "GPS data to global",
-        "func": "\nvar gateway_data = global.get('gateway_data');\n\ngateway_data.data.gps.latitude = msg.payload.lat;\n\n\ngateway_data.data.gps.longitude = msg.payload.lon;\n\n\ngateway_data.data.gps.altitude = msg.payload.alt;\n\n\ngateway_data.data.gps.speed = msg.payload.Speed;\n\n\ngateway_data.data.gps.accuracy = msg.payload.hAcc;\n\nreturn msg;",
+        "func": "\nvar gateway_data = global.get('gateway_data');\n\ngateway_data.data.gps.pos_valid = msg.payload.pos_valid;\ngateway_data.data.gps.old_pos = msg.payload.old_pos;\ngateway_data.data.gps.total = msg.payload.total;\ngateway_data.data.gps.nav_status = msg.payload.nav_status;\ngateway_data.data.gps.latitude = msg.payload.lat;\ngateway_data.data.gps.longitude = msg.payload.lon;\ngateway_data.data.gps.altitude = msg.payload.alt;\ngateway_data.data.gps.haccuracy = msg.payload.hAcc;\ngateway_data.data.gps.vaccuracy = msg.payload.vAcc;\ngateway_data.data.gps.speed = msg.payload.Speed;\ngateway_data.data.gps.course = msg.payload.course;\ngateway_data.data.gps.hdop = msg.payload.HDOP;\ngateway_data.data.gps.vdop = msg.payload.VDOP;\ngateway_data.data.gps.tdop = msg.payload.TDOP;\ngateway_data.data.gps.num_sat = msg.payload.numSvs;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1390,
+        "x": 1330,
         "y": 160,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "e114195d4d6f2b0f",
-        "type": "switch",
-        "z": "a3f4332528cf7e20",
-        "name": "",
-        "property": "payload.hAcc",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "lte",
-                "v": "20",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1190,
-        "y": 160,
-        "wires": [
-            [
-                "23d0a78864a9a4f1",
-                "d8313f623a010f53"
-            ]
         ]
     },
     {
@@ -1469,7 +1443,7 @@
         "type": "debug",
         "z": "a3f4332528cf7e20",
         "name": "debug 34",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1559,7 +1533,7 @@
         "type": "debug",
         "z": "a3f4332528cf7e20",
         "name": "debug 35",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1591,7 +1565,7 @@
         "type": "debug",
         "z": "a3f4332528cf7e20",
         "name": "debug 37",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1656,10 +1630,10 @@
         "y": 160,
         "wires": [
             [
-                "e114195d4d6f2b0f",
                 "cb2630f34149b8f0",
                 "a47d015e7e3645d7",
-                "bbd6bf886f9068b5"
+                "bbd6bf886f9068b5",
+                "23d0a78864a9a4f1"
             ]
         ]
     },
@@ -3253,7 +3227,7 @@
         "to": "",
         "reg": false,
         "x": 980,
-        "y": 1180,
+        "y": 1160,
         "wires": [
             []
         ]
