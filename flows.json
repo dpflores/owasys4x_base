@@ -2663,7 +2663,7 @@
         "id": "9fd1315293417574",
         "type": "exec",
         "z": "dc15c9786796144f",
-        "command": "ip -4 addr show | grep eth0 | grep inet | awk '{print$2}'",
+        "command": "echo -n $(ip -4 addr show | grep eth0 | grep inet | awk '{print$2}' )",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -2671,7 +2671,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 480,
+        "x": 510,
         "y": 700,
         "wires": [
             [
