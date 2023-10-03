@@ -16,6 +16,7 @@ $ACME_INTERNAL_PASS
 
 ### Data structure
 
+```
 {
     "gateway_key": "",
     "timestamp": 0,
@@ -60,3 +61,4 @@ $ACME_INTERNAL_PASS
         }
     }
 }
+```
